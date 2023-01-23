@@ -89,31 +89,37 @@ const nextButton = document.querySelector(".next");
 previousButton.addEventListener("click",
 
     function () {
-        
-        if (activeSlide > 0) {
-            
-            allSlides[activeSlide].classList.remove("active");
-            allMiniSlides[activeSlide].classList.remove("active");
-            activeSlide--;
-            allSlides[activeSlide].classList.add("active");
-            allMiniSlides[activeSlide].classList.add("active");
 
+        allSlides[activeSlide].classList.remove("active");
+        allMiniSlides[activeSlide].classList.remove("active");
+
+        if (activeSlide > 0) {
+            activeSlide--;
         }
+        else{
+            activeSlide = images.length - 1;
+        }
+
+        allSlides[activeSlide].classList.add("active");
+        allMiniSlides[activeSlide].classList.add("active");
     }
 ); 
 
 nextButton.addEventListener("click",
 
     function () {
+
+        allSlides[activeSlide].classList.remove("active");
+        allMiniSlides[activeSlide].classList.remove("active");
         
         if (activeSlide < images.length - 1) {
-            
-            allSlides[activeSlide].classList.remove("active");
-            allMiniSlides[activeSlide].classList.remove("active");
             activeSlide++;
-            allSlides[activeSlide].classList.add("active");
-            allMiniSlides[activeSlide].classList.add("active");
-
         }
+        else{
+            activeSlide = 0;
+        }
+
+        allSlides[activeSlide].classList.add("active");
+        allMiniSlides[activeSlide].classList.add("active");
     }
 ); 
